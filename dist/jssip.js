@@ -15488,7 +15488,7 @@ module.exports = /*#__PURE__*/function (_EventEmitter) {
       logger.debug('sendMessage()');
 
       // Check Session Status.
-      if (this._status !== C.STATUS_ANSWERED) {
+      if (this._status !== C.STATUS_ANSWERED && this._status !== C.STATUS_CONFIRMED) {
         throw new Exceptions.InvalidStateError(this._status);
       }
       var message = new RTCSession_Message(this);
@@ -17876,7 +17876,7 @@ module.exports = /*#__PURE__*/function (_EventEmitter) {
       }
 
       // Check RTCSession Status.
-      if (this._session.status !== this._session.C.STATUS_ANSWERED) {
+      if (this._session.status !== this._session.C.STATUS_ANSWERED && this._session.status !== this._session.C.STATUS_CONFIRMED) {
         throw new Exceptions.InvalidStateError(this._session.status);
       }
       this._contentType = contentType;
