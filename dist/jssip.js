@@ -543,6 +543,9 @@ module.exports = /*#__PURE__*/function () {
       this._route_set = message.getHeaders('record-route').reverse();
       this._ack_seqnum = null;
     }
+
+    //hack to support legacy system
+    this._remote_target = contact.uri.toString().replace('sips', 'sip');
     this._ua.newDialog(this);
     logger.debug("new ".concat(type, " dialog created with status ").concat(this._state === C.STATUS_EARLY ? 'EARLY' : 'CONFIRMED'));
   }
